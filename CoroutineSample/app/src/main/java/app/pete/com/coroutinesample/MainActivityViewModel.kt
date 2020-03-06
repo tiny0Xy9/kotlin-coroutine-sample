@@ -30,8 +30,12 @@ class MainActivityViewModel() : ViewModel(), CoroutineScope, LifecycleObserver {
         //main threadで実行する
         Log.d("MainActivityViewModel","onResumeStart")
         scope.launch {
-            api.getHogeItems().await().let {
-                Log.d("MainActivityViewModel",it.toString())
+            try {
+                api.getHogeItems().await().let {
+                    Log.d("MainActivityViewModel", it.toString())
+                }
+            }catch (e: Throwable){
+                Log.d("MainActivityViewModel", e.message)
             }
         }
         Log.d("MainActivityViewModel","onResumeEnd")
