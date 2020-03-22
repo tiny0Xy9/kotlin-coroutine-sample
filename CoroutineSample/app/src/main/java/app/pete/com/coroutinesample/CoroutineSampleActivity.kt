@@ -2,6 +2,7 @@ package app.pete.com.coroutinesample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Contacts
 import android.util.Log
 import kotlinx.coroutines.*
 
@@ -24,7 +25,7 @@ class CoroutineSampleActivity : AppCompatActivity() {
 
         //launch
         Log.d(TAG,"4")
-        GlobalScope.launch {
+        GlobalScope.launch{
             Log.d(TAG,"5")
         }
         Log.d(TAG,"6")
@@ -53,9 +54,6 @@ class CoroutineSampleActivity : AppCompatActivity() {
                 getProfile()
             }.await()
         }
-
-
-
 
 
     }
